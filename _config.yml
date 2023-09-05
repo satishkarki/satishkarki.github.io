@@ -20,7 +20,7 @@ timezone: America/New_York
 
 title: Satish Karki # the main title
 
-tagline: Code, Coffee, Chuckles # it will display as the sub-title
+tagline: Half Baked Ideas, Full Nerd | Cybersecurity & Data Science Enthusiast | Systems Infrastructure Engineer II # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -81,7 +81,7 @@ img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar:
-
+  https://media.licdn.com/dms/image/C5603AQG7GNqGMvLtVQ/profile-displayphoto-shrink_800_800/0/1662436959627?e=1699488000&v=beta&t=iFdc6t-n0ya9UF-gps-J-wWio9vj19jiX-NxbyLqKk8
 # boolean type, the global switch for TOC in posts.
 toc: true
 
