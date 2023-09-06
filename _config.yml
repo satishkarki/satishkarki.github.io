@@ -20,7 +20,7 @@ timezone: America/New_York
 
 title: Satish Karki # the main title
 
-tagline: Half Baked Ideas, Full Nerd | Cybersecurity & Data Science Enthusiast | Systems Infrastructure Engineer II # it will display as the sub-title
+tagline: Half Baked Ideas, Full Nerd | Systems Infrastructure Engineer II # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
