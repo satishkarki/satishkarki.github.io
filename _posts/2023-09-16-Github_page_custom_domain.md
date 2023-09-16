@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Github page and custom domain"
-date: 2023-09-16 22:00:00
+date: 2023-09-16 10:00:00
 categories: Hosting
 tags: dns_record github_action  # TAG names should be lowercase
 image:
