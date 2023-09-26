@@ -32,12 +32,13 @@ wc -l example.txt #counts the newlines in example.txt file
 grep "10.1.216.10" access.log #search for "10.1.216.10"
 ```
 ### shell operator
-| Symbol / Operator | Description                                                                                                                                      |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| &                 | This operator allows you to run commands in the background of your terminal.                                                                     |
-| &&                | This operator allows you to combine multiple commands together in one line of your terminal.                                                     |
-| >                 | This operator is a redirector - meaning that we can take the output from a command (such as using cat to output a file) and direct it elsewhere. |
-| >>                | This operator does the same function of the > operator but appends the output rather than replacing (meaning nothing is overwritten).            |
+```bash
+& #This operator allows you to run commands in the background of your terminal
+&& #This operator allows you to combine multiple commands together in one line of your terminal
+> #This operator is a redirector - meaning that we can take the output from a command (such as using cat to output a file) and direct it elsewhere
+>> #This operator does the same function of the > operator but appends the output rather than replacing (meaning nothing is overwritten)
+
+```
 
 >Operator "&&" : This shell operator is a bit misleading in the sense of how familiar is to its partner "&". Unlike the "&" operator, we can use "&&" to make a list of commands to run for example command1 && command2. However, it's worth noting that command2 will only run if command1 was successful.
 
@@ -58,14 +59,14 @@ ls -a # Short for -all, files and folders with "." are hidden files.
 man ls # Manual page for ls
 ```
 ### File System Interaction
-| Command    | Full Name  |  Purpose | Syntax  |
-|---|---|---|---|
-| touch  |  touch | Create file  | touch filename  |
-|  mkdir |  make directory | Create a folder  |  mkdir Folder1 |
-| cp  | copy  | Copy a file or folder  | cp oldfile newfile  |
-|  mv |  move |  Move a file or folder | mv oldfolder newfolder  |
-|  rm |  remove | Remove a file or folder  | rm -r folder  |
-|  file | file  | Determine the type of a file  |  file name |
+```bash
+touch filename #Create file
+mkdir Folder1 #Create folder
+cp oldfile newfile #Copy a file or folder
+mv oldfolder newfolder #Move a file or folder
+rm -r folder #Remove a file or folder
+file name #Determine the type of a file
+```
 
 >   Tips: Similarly to using cat, we can provide full file paths, i.e. directory1/directory2/note for all of these commands
 
@@ -167,6 +168,7 @@ sudo systemctl reload apache2 #Reloading a Service Configuration
 
 ### Maintianing your system- Automation
 Crontab is one of the processes that is started during boot, which is responsible for facilitating and managing cron jobs.
+
 ![cron job](/assets/img/post/Linux-Power-To-The-Penguin/cronjob.png)
 ```bash
 crontab -e #To edit cron job
