@@ -7,5 +7,9 @@ tags: cisco commands  # TAG names should be lowercase
 image:
     path: /assets/img/headers/cisco-commands.png
 ---
-Hello Cisco!!!!!
+The purpose of this post is to help me keep track of the commands I come across as I dive into my networking journey. I'm working through the Official Cert Guide by Wendell Odom and configuring these commands on my Catalyst 2960-CX switch.
+
+Let’s start from the very beginning. Grab your popcorn—things are about to get interesting!
+
+
 
