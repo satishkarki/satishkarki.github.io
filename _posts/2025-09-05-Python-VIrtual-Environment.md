@@ -7,7 +7,7 @@ tags: python  # TAG names should be lowercase
 image:
     path: /assets/img/headers/virtualenv.webp
 ---
-# Python Setup and Virtual Environment
+# Python Virtual Environment
 
 In MacBook, open Terminal and run `python3-- version` to check Python 3. It is unlikely that Python 2 is installed, but you can check with `python-- version`. If no Python is installed, the prompt to install Xcode tools will appear, confirming that Python 3 is not preinstalled for user access by default.
 
@@ -135,8 +135,8 @@ pip install -r requirements.txt
 When you create a new virtual environment using the venv module, Python creates a self-contained folder structure and copies or symlinks the Python executable files into that folder structure.
 
 > ***Welcome to the dark abyss, brave one.***
-```shell
 
+```bash
 $ brew install tree #If tree is not installed
 $ tree venv/ #The tree command displays the content of your venv directory in a very long tree structure.
 
@@ -167,19 +167,23 @@ venv/
 │           └── pip-24.2.dist-info/
 │
 └── pyvenv.cfg
+
 ```
 - **bin/** contains the executable files of your virtual environment. Most notable are the Python interpreter (python) and the pip executable (pip), as well as their respective symlinks (python3, python3.12, pip3, pip3.12). The folder also contains activation scripts for your virtual environment. 
 - **include/** is an initially empty folder that Python uses to include C header files for packages you might install that depend on C extensions.
 - **lib/** contains the site-packages/ directory nested in a folder that designates the Python version (python3.12/). site-packages/ is one of the main reasons for creating your virtual environment. This folder is where you’ll install external packages that you want to use within your virtual environment. 
 - **pyenv.cfg** is a crucial file for your virtual environment. It contains only a couple of key-value pairs that Python uses to set variables in the sys module that determine which Python interpreter and site-packages directory the current Python session will use.
-  ```shell
+
+
+```shell
   #Contain of pyenv.cfg
   home = /usr/local/opt/python@3.12/bin
   include-system-site-packages = false
   version = 3.12.11
   executable = /usr/local/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/bin/python3.12
   command = /usr/local/opt/python@3.12/bin/python3.12 -m venv /Users/macbook/Library/CloudStorage/OneDrive-Personal/Notes/python/Projects/pythonplayground/venv
-  ```
+```
+
 ```shell
 $ python3 -m venv venv/ --system-site-packages
 ```
