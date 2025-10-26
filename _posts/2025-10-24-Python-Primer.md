@@ -30,6 +30,7 @@ print("Max Verstappen", "Carlos Sainz", "Lewis Hamilton")
 ```
 * a print() function invoked with more than one argument outputs them all on one line
 * the print() function puts a space between the outputted arguments on its own initiative.
+  
 ```python
 print("Hello", "World", sep="---", end="!!!")
 print("Next")
@@ -64,6 +65,7 @@ The characteristic of the numeric value which determines its kind, range, and ap
 * Hexadecimal number should be preceded by the prefix `0x` or `0X` (zero-X)
 
 ### Floats
+
 ```python
 .4 # 0.4
 4. # 4.0
