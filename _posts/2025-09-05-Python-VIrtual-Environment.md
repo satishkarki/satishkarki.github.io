@@ -7,7 +7,11 @@ tags: python  # TAG names should be lowercase
 image:
     path: /assets/img/headers/virtualenv.webp
 ---
-# Python Virtual Environment
+I have learned it hard way- to stay resolutely in my own lane. Got a brilliant idea bubbling up in that overworked brain of yours? DO NOT—and I mean DO NOT—whisper even a syllable of it to your manager. Why? Because in a puff of corporate magic, it'll morph into your personal albatross, and you'll be clawing at your scalp like a deranged monkey while the project spirals into a black hole of deadlines. Oh, and your manager? They'll be right there, yanking tufts out of your head too, all while beaming like it was their stroke of genius. "Team effort," they'll coo, as you age a decade overnight.Implement the idea at our spare time (mythical) and if it works, maybe next time talk to your manager about that pay raise which has been due since ice age. 
+
+Similar thing happens in python. Treat that pre-installed Python like your manager's favorite mug: admire from afar, but never touch it. One rogue `pip install` and kaboom!!! Enough with my BS, let's jump into action.
+
+## In MacBook
 
 In MacBook, open Terminal and run `python3-- version` to check Python 3. It is unlikely that Python 2 is installed, but you can check with `python-- version`. If no Python is installed, the prompt to install Xcode tools will appear, confirming that Python 3 is not preinstalled for user access by default.
 
