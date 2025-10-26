@@ -5,7 +5,7 @@ date: 2025-10-24 10:00:00
 categories: Python
 tags: python  # TAG names should be lowercase
 image:
-    path: /assets/img/post/python-primer/python.jpeg
+    path: /assets/img/headers/python-primer.jpeg
 ---
 # Try-Except or Die Trying: Python for the Exceptionally Clueless
 
