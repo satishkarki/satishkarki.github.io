@@ -1,14 +1,12 @@
 ---
 layout: post
-title: "Python Primer: Try-Except or Die Trying"
+title: "Try-Except or Die Trying: Python for the Exceptionally Clueless"
 date: 2025-10-24 10:00:00
 categories: Python
 tags: python  # TAG names should be lowercase
 image:
     path: /assets/img/headers/memepython.webp
 ---
-# Try-Except or Die Trying: Python for the Exceptionally Clueless
-
 ## Function
 A list of all [built-in Functions](https://docs.python.org/3.12/library/functions.html)
 ```python
