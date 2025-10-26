@@ -5,7 +5,7 @@ date: 2025-10-24 10:00:00
 categories: Python
 tags: python  # TAG names should be lowercase
 image:
-    path: /assets/img/headers/python-primer.webp
+    path: /assets/img/headers/memepython.webp
 ---
 # Try-Except or Die Trying: Python for the Exceptionally Clueless
 
@@ -32,12 +32,7 @@ print("Max Verstappen", "Carlos Sainz", "Lewis Hamilton")
 ```
 * a print() function invoked with more than one argument outputs them all on one line
 * the print() function puts a space between the outputted arguments on its own initiative.
-
-
-
-
-
-``` Python
+```python
 print("Hello", "World", sep="---", end="!!!")
 print("Next")
 #Output
@@ -50,6 +45,7 @@ SyntaxError: positional argument follows keyword argument
 # Under the hood
 print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
 ```
+
 Keyword arguments are the ones whose meaning is not dictated by their location, but by a special word (keyword) used to identify them.
 * sep="---": Keyword argument that changes the separator between objects from a space to ---.
 * end="!!!": Keyword argument that ends the output with !!! instead of a newline.
@@ -150,6 +146,7 @@ print(12 % 4.5) # Output is 3
 * Floor Division round up always goes to the lesser integer
 * The result of modulo operator is a remainder left after the integer division.
 ### Operators bindings
+
 ```python
 print(9 % 6 % 2)  # Output 1
 
@@ -162,8 +159,8 @@ print(-(3 ** 2)) # Output -9
 print((-3) ** 2)  # Output 9
 
 print(2 * 3 % 5) # Output 1
-
 ```
+
 * The binding of the operator determines the order of computations performed by some operators with equal priority, put side by side in one expression.
 * Most of Python's operators have left-sided binding, which means that the calculation of the expression is conducted from left to right.
 * from left to right: first 9 % 6 gives 3, and then 3 % 2 gives 1;
