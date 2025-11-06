@@ -531,7 +531,233 @@ print(my_list)
 ```
 
 #### Bubble sort
+```python
+my_list = [8, 10, 6, 2, 4]  # list to sort
+swapped = True  # It's a little fake, we need it to enter the while loop.
 
+while swapped:
+    swapped = False  # no swaps so far
+    for i in range(len(my_list) - 1):
+        if my_list[i] > my_list[i + 1]:
+            swapped = True  # a swap occurred!
+            my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
+
+print(my_list)
+
+# ready to use tool
+my_list = [8, 10, 6, 2, 4]
+my_list.sort()
+my_reverse_list.reverse()
+
+# Example
+ a = "A"
+b = "B"
+c = "C"
+d = " "
+ 
+lst = [a, b, c, d]
+lst.reverse()
+ 
+print(lst) # Output: [' ', 'C', 'B', 'A']
+```
+### Nature of Lists
+
+```python
+list_1 = [1]
+list_2 = list_1
+list_1[0] = 2
+print(list_2)
+# Output [2]
+```
+* List is mutable and reference-based. It's like giving two people (list_1 and list_2) directions to the same house—if you repaint the house (modify the list), both people see the new color.
+* 
+
+#### The Slicing Syntax: Your Swiss Army Knife
+```python
+my_list[start:stop:step] # General form
+my_list[start:end]
+```
+* start: Inclusive index to begin (default: 0).
+* stop: Exclusive index to end (default: len(list)).
+* step: Increment (default: 1; -1 reverses, 2 skips every other).
+* Shortcuts: [:] = full copy; [2:] = from 2 to end; [:-1] = all but last; [::-1] = reverse. Negative indices count from the end (-1 = last item).
+
+```python
+# Example
+cart = ['milk', 'bread', 'eggs', 'coffee', 'bananas', 'tea']
+
+# From start to middle (first 3)
+breakfast = cart[0:3]
+print(breakfast)          # Output: ['milk', 'bread', 'eggs']
+
+# End chunk (last 3)
+snacks = cart[3:]
+print(snacks)             # Output: ['coffee', 'bananas', 'tea']
+
+# Every other (step=2, evens vibe)
+alternates = cart[::2]
+print(alternates)         # Output: ['milk', 'eggs', 'bananas']
+
+# Reverse for "unshopping" list
+reverse_cart = cart[::-1]
+print(reverse_cart)       # Output: ['tea', 'bananas', 'coffee', 'eggs', 'bread', 'milk']
+
+# Negative: Last 2 (from -2 to end)
+final_two = cart[-2:]
+print(final_two)          # Output: ['bananas', 'tea']
+```
+```python
+# del() + Slicing
+
+fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry']
+print(fruits)  # Output: ['apple', 'banana', 'cherry', 'date', 'elderberry']
+
+del fruits[1:3]  # Delete indices 1 to <3 → bye 'banana' & 'cherry'
+print(fruits)    # Output: ['apple', 'date', 'elderberry']  (Original mutated!)
+
+tasks = ['code', 'test', 'debug', 'deploy']
+print(tasks)  # ['code', 'test', 'debug', 'deploy']
+
+del tasks[2:]   # From 2 to end → delete 'debug' & 'deploy'
+print(tasks)    # ['code', 'test']
+
+del tasks[:]    # Full slice delete → empty list
+print(tasks)    # []  (All gone—careful!)
+
+numbers = [1, 2, 3, 4, 5, 6]
+print(numbers)  # [1, 2, 3, 4, 5, 6]
+
+del numbers[::2]  # Every other from start → delete 1,3,5
+print(numbers)    # [2, 4, 6]
+
+# Reset & reverse delete (last 3, but step -1 doesn't change much for del)
+numbers = [1, 2, 3, 4, 5, 6]
+del numbers[-3::-1]  # Tricky: from -3 (4) backwards to start (but del slices forward-ish)
+print(numbers)       # Actually deletes [4,5,6] effectively → [1,2,3]  (Test it—slices with neg step can flip!)
+```
+#### The *in* and *not in* operators
+
+```python
+cart = ['apple', 'banana', 'cherry']
+print('apple' in cart)      # Output: True
+print('date' in cart)       # Output: False
+print('dragonfruit' not in cart)  # Output: True
+```
+
+#### Different style of accessing list by position or value
+```python
+# Ex1 style
+my_list = [5, 12, 3, 18, 7]
+largest = my_list[0]  # 5
+for i in range(1, len(my_list)):
+    if my_list[i] > largest:
+        print(f"Update! {my_list[i]} beats {largest} at pos {i}")
+        largest = my_list[i]
+print(largest)
+
+# Outputs: 
+# Update! 12 beats 5 at pos 1
+# Update! 18 beats 12 at pos 3
+# 18
+
+# Ex2: Same, but i=values, no pos tracking
+largest = my_list[0]
+for i in my_list:
+    if i > largest:
+        print(f"Update! {i} beats {largest}")
+        largest = i
+print(largest)
+
+#Outputs:
+# Update! 12 beats 5
+# Update! 18 beats 12
+# 18
+
+# Ex3: Skips first entirely
+largest = my_list[0]
+for i in my_list[1:]:
+    if i > largest:
+        print(f"Update! {i} beats {largest}")
+        largest = i
+print(largest) 
+
+# Output
+# Update! 12 beats 5
+# Update! 18 beats 12
+# 18
+```
+### List in advanced applications
+ List comprehension allows you to create new lists from existing ones in a concise and elegant way. The syntax of a list comprehension looks as follows:
+
+```python
+[expression for element in list if conditional]
+ # which is actually an equivalent of the following code:
+
+for element in list:
+    if conditional:
+        expression 
+```
+
+#### List Comprehension
+
+```python
+# Loop version: Conditional append
+row_chess = []
+for i in range(8):
+    if i % 2 == 0:
+        row_chess.append('WHITE_PAWN')
+    else:
+        row_chess.append('BLACK_PAWN')
+print(row_chess)  # ['WHITE_PAWN', 'BLACK_PAWN', 'WHITE_PAWN', ...] (alternating)
+
+# Comp version: Ternary for condition (fancy!)
+row2_chess = ['WHITE_PAWN' if i % 2 == 0 else 'BLACK_PAWN' for i in range(8)]
+print(row2_chess)  # Same alternating output—boom, one-liner!
+
+# Bonus: Use i for numbering (no dummy var)
+numbered = [f"Pawn {i}" for i in range(8)]
+print(numbered)  # ['Pawn 0', 'Pawn 1', ..., 'Pawn 7']
+```
+#### 2D Arrays
+```python
+board = []  # Line 1: Empty "board" list (will hold 8 rows)
+
+for i in range(8):  # Line 2: Outer loop—8 rows (i=0 to 7)
+    row = ['EMPTY' for i in range(8)]  # Line 3: Inner comp—8 'EMPTY's per row (but 'i' shadows outer i—harmless here, but confusing!)
+    board.append(row)  # Line 4: Add this row to board
+
+print(board)  # Line 5: Dump the 2D list
+
+board2 = [['EMPTY' for i in range(8)] for j in range(8)]  # Line 6: Nested comp—outer j for rows, inner i for cols (cleaner vars!)
+print(board2)  # Line 7: Print the quick board
+```
+#### Multi-D Arrays
+```python
+# Example 1: Loop Build
+garage = []  # Empty 3D: list of 2D floors per level
+
+# Outer: 2 
+for level in range(2):
+    floor_plan = []  # Inner 2D for this level
+    # Middle: 2 floors per level
+    for floor in range(2):
+        spot_row = ['EMPTY' for spot in range(3)]  # Inner: 3 spots per row
+        floor_plan.append(spot_row)
+    garage.append(floor_plan)  # Add full level to garage
+
+print(garage)  # [[[EMPTY x3], [EMPTY x3]], [[EMPTY x3], [EMPTY x3]]]
+print(garage[0][1][2])  # Level 0, floor 1, spot 2: 'EMPTY'
+
+
+
+#Example 2 : Loop Comprehension
+garage2 = [[['EMPTY' for spot in range(3)] for floor in range(2)] for level in range(2)]
+print(garage2)  # Matches the loop output—quick and clean!
+
+# Access & mutate: "Park" a 'CAR' in level 1, floor 0, spot 1
+garage2[1][0][1] = 'CAR'
+print(garage2[1][0])  # ['EMPTY', 'CAR', 'EMPTY'] (that floor updated)
+```
 
 
 
