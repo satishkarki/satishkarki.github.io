@@ -758,6 +758,196 @@ print(garage2)  # Matches the loop output—quick and clean!
 garage2[1][0][1] = 'CAR'
 print(garage2[1][0])  # ['EMPTY', 'CAR', 'EMPTY'] (that floor updated)
 ```
+## Functions
+```python
+def your_function(optional parameters):
+    # the body of the function 
+```
+There are at least four basic types of functions in Python:
+* built-in functions which are an integral part of Python (such as the print() function). You can see a complete list of built-in Python functions at https://docs.python.org/3/library/functions.html.
+* the ones that come from pre-installed modules
+* user-defined functions which are written by users for users ‒ you can write your own functions and use them freely in your code,
+* the lambda functions
 
+```python
+def hello(name):    # defining a function
+    print("Hello,", name)    # body of the function
+
+
+name = input("Enter your name: ")
+
+hello(name)    # calling the function
+```
+### Parameterized functions
+
+```python
+def fancy_greet(name, mood="happy", emoji="😊"):
+    print(f"Hello, {name}! You're feeling {mood} today. {emoji}")
+
+# Pure positional (order matters!)
+fancy_greet("Alex", "excited")  # name="Alex", mood="excited", emoji=default 😊
+# Output: Hello, Alex! You're feeling excited today. 😊
+
+# Mix: Positional for name, keyword for mood (skips to it)
+fancy_greet("Jordan", mood="chill")  # name="Jordan" (pos), mood="chill" (key), emoji=default
+# Output: Hello, Jordan! You're feeling chill today. 😊
+
+# Full mix: Positional name, keywords for the rest (order of keywords doesn't matter!)
+fancy_greet("Taylor", emoji="🚀", mood="motivated")
+# Output: Hello, Taylor! You're feeling motivated today. 🚀
+
+# All keywords (no positionals—totally fine!)
+fancy_greet(name="Casey", mood="grumpy", emoji="😴")
+# Output: Hello, Casey! You're feeling grumpy today. 😴
+```
+The Golden Rule for Mixing
+* Positional args must come before keyword args in the call. (Python reads left-to-right.)
+* No duplicates: Can't specify the same param twice.
+* All positional args must match the function's param order up to that point.
+* Keywords can be in any order after positionals, as long as they're defined.
+
+Common Pitfalls
+* Error Example:`fancy_greet(mood="sad", "Sam")` → SyntaxError! Keywords can't come before positionals. Fix:`fancy_greet("Sam", mood="sad")`.
+* Duplicate:`fancy_greet("Pat", mood="joyful", mood="meh")` → SyntaxError. Fix: Pick one!
+* Out-of-Order Pos: If you have 3 params, `func(1, 3, 2)` assumes a=1, b=3, c=2—not what you want if order matters.
+
+### Returning a result from a function
+```python
+def happy_new_year(wishes=True):  # Default: wishes=True
+    print("Three...")
+    print("Two...")
+    print("One...")
+    if not wishes:  # If wishes is False, skip the celebration
+        return  # Early exit: returns None, skips the print below
+    print("Happy New Year!")  # Only runs if wishes is True
+
+# Test calls (mixing that positional/keyword from last time!)
+happy_new_year()  # Default: wishes=True
+# Output:
+# Three...
+# Two...
+# One...
+# Happy New Year!
+
+print("---")  # Separator for clarity
+
+happy_new_year(wishes=False)  # Keyword override: no wishes
+# Output:
+# Three...
+# Two...
+# One...
+# (No "Happy New Year!"—it bailed early)
+```
+What Does `return` Do?
+
+* Exits the function immediately: Anything after return in that code path? Skipped!
+* Returns a value (optional): Can be a number, string, list, etc.—or nothing (just return alone, which returns None).
+* Why use it? Control flow (early outs), compute results for reuse, keep code clean.
+* Forgetting return: Function runs but gives None. Always ask: "What should this give back?"
+
+<!-- markdownlint-disable-next-line -->
+>  Implicit Return value :
+{: .prompt-info }
+```python
+def strange_function(n):
+    if(n % 2 == 0):
+        return True
+print(strange_function(2)) # Output : True
+print(strange_function(1)) # Output : None
+```
+```python
+def is_even(n):
+    """
+    Returns True if n is even, False otherwise.
+    Uses modulo for the check—fast and simple!
+    """
+    if n % 2 == 0:
+        return True
+    return False  # Explicit for odds—avoids implicit None
+
+# Or, one-liner style (shorter, same result):
+def is_even_short(n):
+    return n % 2 == 0  # Returns True/False directly—no if needed!
+
+# Test 'em
+print(is_even(2))      # True
+print(is_even(1))      # False
+print(is_even_short(4)) # True
+print(is_even_short(3)) # False
+```
+### Effects and results: lists and functions
+```python
+def strange_list_fun(n):
+    strange_list = []
+    
+    for i in range(0, n):
+        strange_list.insert(0, i)
+    
+    return strange_list
+
+print(strange_list_fun(5))
+# Output [4, 3, 2, 1, 0]
+```
+### Functions and scopes
+```python
+def my_function():
+    var = 2
+    print("Do I know that variable?", var)
+var = 1
+my_function()
+print(var)
+
+# Outout
+# Do I know that variable? 2
+# 1 
+```
+```python
+def my_function():
+    global var
+    var = 2
+    print("Do I know that variable?", var)
+var = 1
+my_function()
+print(var)
+
+# Outout
+# Do I know that variable? 2
+# 2 
+```
+```python
+def my_function(n):
+    print("I got", n)
+    n += 1
+    print("I have", n)
+var = 1
+my_function(var)
+print(var)
+
+# Output
+# I got 1
+# I have 2
+# 1
+```
+```python
+def my_function(my_list_1):
+    print("Print #1:", my_list_1)
+    print("Print #2:", my_list_2)
+    del my_list_1[0]  # Pay attention to this line.
+    print("Print #3:", my_list_1)
+    print("Print #4:", my_list_2)
+
+
+my_list_2 = [2, 3]
+my_function(my_list_2)
+print("Print #5:", my_list_2)
+
+# Output
+# Print #1: [2, 3]
+# Print #2: [2, 3]
+# Print #3: [3]
+# Print #4: [3]
+# Print #5: [3] 
+```
+### Recursive Function
 
 
