@@ -989,7 +989,7 @@ countdown(3)
 Tuples like lists but immutable (can't change after creation—no appends, no deletes, no drama).
 * Tuples are ordered and unchangeable (immutable) collections of data. They can be thought of as immutable lists. They are written in round brackets.
 * If you remove the comma, you will tell Python to create a variable, not a tuple.
-* 
+  
 
 ```python
 tuple_1 = (1, 2, 4, 8)
@@ -1060,9 +1060,8 @@ What is a Dictionary?
 * You can also insert an item into a dictionary by using the update() method, and remove the last element by using the popitem() method
 * You can use the del keyword to remove a specific item, or delete a dictionary. To remove all the dictionary's items, you need to use the clear() method
 * To copy a dictionary, use the copy() method
-* 
+  
 ```python
-# Creation
 person = {"name": "Alice", "age": 30, "city": "Toronto"}  # Strings as keys
 scores = {1: "A", 2: "B", 3: "C"}  # Int keys (like indices, but sparse)
 mixed = {("x", "y"): [10, 20], "z": 99}  # Tuple key! (Immutable = hashable)
