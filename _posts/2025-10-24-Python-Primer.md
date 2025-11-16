@@ -949,5 +949,191 @@ print("Print #5:", my_list_2)
 # Print #5: [3] 
 ```
 ### Recursive Function
+When a function calls itself, this situation is known as `recursion`, and the function which calls itself and contains a specified termination condition (i.e., the base case − a condition which doesn't tell the function to make any further calls to that function) is called a `recursive` function.
 
+```python
+def factorial(n):
+    if n <= 1:  # Base case: 0! or 1! = 1 (stops the chain)
+        return 1
+    return n * factorial(n - 1)  # Recursive: Call self with smaller n
+
+# Test it
+print(factorial(5))  # Output: 120
+print(factorial(0))  # Output: 1 (base!)
+print(factorial(3))  # Output: 6 (3*2*1)
+```
+```python
+def factorial(n):
+    return n * factorial(n - 1)
+print(factorial(4))
+# Output: RecursionError: maximum recursion depth exceeded
+```
+
+```python
+def countdown(n):
+    if n == 0:  # Base
+        print("Blast off!")
+        return
+    print(f"T minus {n}")
+    countdown(n - 1)  # Recursive
+
+# Test
+countdown(3)
+# Output:
+# T minus 3
+# T minus 2
+# T minus 1
+# Blast off!
+```
+## Tuples
+Tuples like lists but immutable (can't change after creation—no appends, no deletes, no drama).
+* Tuples are ordered and unchangeable (immutable) collections of data. They can be thought of as immutable lists. They are written in round brackets.
+* If you remove the comma, you will tell Python to create a variable, not a tuple.
+* 
+
+```python
+tuple_1 = (1, 2, 4, 8)
+tuple_2 = 1., .5, .25, .125
+print(tuple_1)
+print(tuple_2)
+
+# Output 
+# (1, 2, 4, 8)
+# (1.0, 0.5, 0.25, 0.125) 
+```
+
+
+```python
+my_tuple = (1, "hello", 3.14, True)  # Mixed types—flexible!
+short_tuple = (42,)  # Singleton: Trailing comma!
+empty_tuple = ()
+
+print(my_tuple)         # Output: (1, 'hello', 3.14, True)
+print(type(my_tuple))   # <class 'tuple'>
+print(len(my_tuple))    # 4
+
+print(my_tuple[0])      # 1 (first item)
+print(my_tuple[1:3])    # ('hello', 3.14) — slice returns a new tuple!
+print(my_tuple[-1])     # True (last)
+```
+### Unpacking Tuples
+```python
+coords = (10, 20)  # Point (x, y)
+x, y = coords      # Unpack: x=10, y=20
+print(f"Point at ({x}, {y})")  # Output: Point at (10, 20)
+
+# Multi-unpack
+a, b, *rest = my_tuple  # a=1, b='hello', rest=[3.14, True] (star grabs extras)
+print(rest)             # [3.14, True]
+```
+### Immutability: The Superpower (And Limitation)
+```python
+my_tuple = (1, 2, 3)
+
+# This fails!
+# my_tuple[0] = 99  # TypeError: 'tuple' object does not support item assignment
+
+# Workaround: Reassign the whole tuple
+my_tuple = (99, 2, 3)  # New tuple—old one garbage collected
+print(my_tuple)        # (99, 2, 3)
+```
+### Tie to Functions
+```python
+def get_stats(numbers):  # Say, from a list [1,2,3]
+    return (sum(numbers), len(numbers), sum(numbers)/len(numbers))  # Tuple of sum, count, avg
+
+stats = get_stats([1, 2, 3])
+total, count, avg = stats  # Unpack!
+print(f"Total: {total}, Avg: {avg}")  # Total: 6, Avg: 2.0
+```
+## Dictionaries
+
+What is a Dictionary?
+
+* Definition: Mutable, hashable-key collection: key: value pairs. Keys must be immutable (strings, ints, tuples—not lists!).
+* Syntax:{key1: value1, key2: value2}. Empty: {}.
+* Why? O(1) average lookups (faster than list searching). No duplicates keys—last one wins.
+* From Tuples/Lists: Like a list of tuples [(k,v)], but dicts handle the mapping magic.
+* keys are case-sensitive: 'Suzy' is something different from 'suzy'.
+* To remove the last item in a dictionary, you can use the popitem() method
+* To check if a given key exists in a dictionary, you can use the in keyword
+* You can also insert an item into a dictionary by using the update() method, and remove the last element by using the popitem() method
+* You can use the del keyword to remove a specific item, or delete a dictionary. To remove all the dictionary's items, you need to use the clear() method
+* To copy a dictionary, use the copy() method
+* 
+```python
+# Creation
+person = {"name": "Alice", "age": 30, "city": "Toronto"}  # Strings as keys
+scores = {1: "A", 2: "B", 3: "C"}  # Int keys (like indices, but sparse)
+mixed = {("x", "y"): [10, 20], "z": 99}  # Tuple key! (Immutable = hashable)
+
+empty_dict = {}
+print(type(person))  # <class 'dict'>
+print(len(person))   # 3 (number of pairs)
+```
+### Accessing dictionary
+```python
+print(person["name"])      # Alice
+print(person.get("hobby", "None"))  # None (safe miss)
+
+for k, v in person.items():  # Loop like unpacked tuples
+    print(f"{k}: {v}")
+# Output:
+# name: Alice
+# age: 30
+# city: Toronto
+```
+### Modifying Dictionary
+Add, update, delete—like lists but by key.
+```python
+person["job"] = "Coder"  # Add/update
+person["age"] += 1       # Update: 31
+
+del person["city"]       # Remove key (or pop("city"))
+print(person)            # {'name': 'Alice', 'age': 31, 'job': 'Coder'}
+
+# Merge: Update from another dict
+defaults = {"hobby": "Reading"}
+person.update(defaults)
+print(person)            # Adds hobby
+```
+### Tie to Functions
+```python
+def get_person_info(name, age):
+    return {"name": name, "age": age, "status": "Active"}  # Dict return!
+
+info = get_person_info("Bob", 25)
+name, age = info["name"], info["age"]  # Or unpack: name, age, _ = info.values() (kinda)
+print(f"{name} is {age}")  # Bob is 25
+```
+```python
+# Keys() method
+""" The method returns an iterable object consisting of all the keys gathered within the dictionary."""
+
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+
+for key in dictionary.keys():
+    print(key, "->", dictionary[key])
+
+#Output
+# horse -> cheval
+# dog -> chien
+# cat -> chat
+```
+```python
+# items() method
+""" The method returns tuples where each tuple is a key-value pair."""
+
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+
+for english, french in dictionary.items():
+    print(english, "->", french)
+
+# Output
+# cat -> chat
+# dog -> chien
+# horse -> cheval
+```
+
+## Exceptions
 
