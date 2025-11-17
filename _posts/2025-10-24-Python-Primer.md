@@ -1135,4 +1135,42 @@ for english, french in dictionary.items():
 ```
 
 ## Exceptions
+`It's better to handle an error when it happens than to try to avoid it.`
+```python
+try:
+	# It's a place where
+	# you can do something 
+    # without asking for permission.
+except:
+	# It's a spot dedicated to 
+    # solemnly begging for forgiveness.
+```
 
+* Any part of the code placed between `try` and `except` is executed in a very special way – any error which occurs here won't terminate program execution. Instead, the control will immediately jump to the first line situated after the except keyword, and no other part of the try branch is executed
+* The code in the `except` branch is activated only when an exception has been encountered inside the `try` block. There is no way to get there by any other means
+* When either the `try` block or the `except` block is executed successfully, the control returns to the normal path of execution, and any code located beyond in the source file is executed as if nothing happened.
+
+```python
+try:
+    value = int(input('Enter a natural number: '))
+    print('The reciprocal of', value, 'is', 1/value)        
+except ValueError:
+    print('I do not know what to do.')    
+except ZeroDivisionError:
+    print('Division by zero is not allowed in our Universe.')    
+except:
+    print('Something strange has happened here... Sorry!')
+```
+* You can specify as many or as few of them as you need, but don't forget that none of the exceptions can be specified more than once.
+
+<!-- markdownlint-disable-next-line -->
+>  Some useful exceptions :
+{: .prompt-info }
+* ZeroDivisionError
+* ValueError
+* TypeError
+* AttributeError
+* SyntaxError
+
+## What's Next? 
+You've just dipped your toe into Python—turns out, it's not as cold or scary as it looked from afar. Great job! Now it's time to jump in and relax. The water will get deeper and chillier from here, with tougher code that might freeze your brain at first. But stick with it—you'll get numb to the cold and start loving the swim. Ready for more?
