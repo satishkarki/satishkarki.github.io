@@ -9,6 +9,8 @@ image:
 ---
 If you just looked at the thumbnail of the post and jumped right into the contain, I'm sorry to say you are in the wrong place. I clickbaited you. That's how everything works these days. But don't worry-here is a very interesting video about [python 101](https://youtu.be/uns8vUQNxpc?si=nMDPZQu23vGXCXN3) on NatGeo. Now, back to the unalive python. I have summarized the content of python course available on [NetCad](https://www.netacad.com/dashboard). It is free and offered by Python Institute for the PCEP- Certified Entry-Level Python Programmer Certification Exam. Let's catch this python.
 
+![Python Badge](/assets/img/post/python-primer/PythonBadge.png)
+
 ## Bye World
 A list of all [built-in Functions](https://docs.python.org/3.12/library/functions.html)
 ```python
