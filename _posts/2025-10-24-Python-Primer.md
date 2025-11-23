@@ -11,8 +11,7 @@ If you just looked at the thumbnail of the post and jumped right into the contai
 
 Now, back to the not so scary python. I have summarized the content of python course available on [NetCad](https://www.netacad.com/dashboard). It is free and offered by Python Institute for the PCEP- Certified Entry-Level Python Programmer Certification Exam. At the end of this course, you will get a badge which I am flexing down here. Let's catch this python.
 
-<div data-iframe-width="972" data-iframe-height="589" data-share-badge-id="49883173-b7aa-4109-961f-216b9ab7815a" data-share-badge-host="https://www.credly.com"></div>
-<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="49883173-b7aa-4109-961f-216b9ab7815a" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
 ## Bye World
 A list of all [built-in Functions](https://docs.python.org/3.12/library/functions.html)
