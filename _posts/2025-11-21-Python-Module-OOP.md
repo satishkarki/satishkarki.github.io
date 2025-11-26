@@ -91,5 +91,60 @@ dir(platform)
 # Output
 ['_Processor', '_WIN32_CLIENT_RELEASES', '_WIN32_SERVER_RELEASES', '__builtins__', '__cached__', '__copyright__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '__version__', '_comparable_version', '_default_architecture', '_follow_symlinks', '_get_machine_win32', '_java_getprop', '_mac_ver_xml', '_node', '_norm_version', '_os_release_cache', '_os_release_candidates', '_parse_os_release', '_platform', '_platform_cache', '_sys_version', '_sys_version_cache', '_syscmd_file', '_syscmd_ver', '_uname_cache', '_unknown_as_blank', '_ver_stages', '_win32_ver', '_wmi_query', 'architecture', 'collections', 'freedesktop_os_release', 'functools', 'itertools', 'java_ver', 'libc_ver', 'mac_ver', 'machine', 'node', 'os', 'platform', 'processor', 'python_branch', 'python_build', 'python_compiler', 'python_implementation', 'python_revision', 'python_version', 'python_version_tuple', 're', 'release', 'sys', 'system', 'system_alias', 'uname', 'uname_result', 'version', 'win32_edition', 'win32_is_iot', 'win32_ver']
 ```
-## Packages
+### How module works?
+
+![__pycache__](/assets/img/post/pythonOOP/bytecode.png){: width="972" height="589" .w-50 .left}
+
+If you create module, lets say module.py and import it to main.py, a new subfolder appears - `__pycache__`. It has a file called module.cpython-xy.pyc where x and y are digits derived from python version. The last part .pyc comes from the word Python and Compiled. It is a byte code ready to be executed by interpreter.
+
+
+
+#### The famous `if __name__ == "__main__":` guard
+
+```python
+# module.py
+print("I like to be a module.")
+print("My __name__ is:", __name__)
+
+# This part runs ONLY when you run module.py directly
+if __name__ == "__main__":
+    print("I'm being run directly! Let's do some tests:")
+    print("Testing my own functions...")
+else:
+    print("I was imported by another module")
+```
+```python
+# Output
+I like to be a module.
+My __name__ is: __main__
+I'm being run directly! Let's do some tests:
+Testing my own functions...
+```
+Let's say you import module.py to your main.py and run the main.py script, the output will be:
+```python
+import module
+print(__name__)
+
+# Output
+I like to be a module.
+My __name__ is: module
+I was imported by another module
+```
+To sum it up, if you run the module directly, `__name__` becomes `"__main__"` and the statements in `if __name__=="__main__":` runs. If it is imported to main.py and you run main.py, `__name__` becomes `"your file name"` and `if __name__=="__main__":` doesn't run.
+
+Real World Example
+```python
+# calculator.py
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+# These tests run only when you execute this file directly
+if __name__ == "__main__":
+    print("Testing calculator...")
+    print(add(5, 3))      # → 8
+    print(subtract(10, 4)) # → 6
+```
 
