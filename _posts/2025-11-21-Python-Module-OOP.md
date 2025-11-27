@@ -147,4 +147,134 @@ if __name__ == "__main__":
     print(add(5, 3))      # → 8
     print(subtract(10, 4)) # → 6
 ```
+#### Private variable - Please don't touch
+Python has no real `private` keyword like Java/C++ . It doesn't stop you from touching "private" things- it just asks nicely with underscores.
+* `_var` → “please don’t touch this unless you have a good reason”
+* `__var` → “I really don’t want you to touch this (but you still can if you try hard)”
 
+```python
+# module.py
+counter = 0                    # public – anyone can touch
+_counter = 0                   # "protected" – gentle warning
+__counter = 0                  # "private" – name mangled
+
+def incr():
+    global counter, _counter, __counter
+    counter += 1
+    _counter += 1
+    __counter += 1
+
+print("Inside module, __counter is:", __counter)
+```
+```python
+# main.py
+import module
+
+module.incr()
+
+print(module.counter)     # → 1   works
+print(module._counter)    # → 1   works, but you’re being rude
+# print(module.__counter) # → AttributeError!
+
+# But... Python actually renamed it!
+print(module._module__counter)  # → 1   the secret way to access it
+```
+This name mangling (_module__counter) is Python’s tiny attempt to protect you from accidental access — but anyone who knows the trick can still get in.
+
+#### The Shebang Line
+```python
+#!/usr/bin/env python3
+```
+<!-- markdownlint-disable-next-line -->
+> “When someone runs this file as an executable, please use `/usr/bin/env python3` to launch it.”
+{: .prompt-info }
+
+#### What if module and main are in different folders ?
+```
+C:\Users\user\py\
+│
+├── modules\
+│   └── module.py          ← our reusable module
+│
+└── progs\
+    └── main.py             ← wants to import module.py
+```
+Since module is not in the where main is, main.py will crash. 
+We will look into packaging our module later, first lets look at adding modules folder to sys.path during runtime.
+
+##### Method 1: Modify the sys.path
+```python
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# sys.path.append(str(Path(__file__).parent.parent / "modules"))
+
+''' sys.path.append(...) appends at the end, lower priority
+sys.path.insert(0, ...) inserts at beginning and highest priority'''
+
+```
+Visual Diagram of sys.path.insert(0, ...)
+```
+# How sys.path.insert(0, str(Path(__file__).resolve().parent.parent)) works
+main.py  ──→  __file__  = "C:/.../py/progs/main.py"
+                 ↓
+           Path(...)               → Path object
+                 ↓
+            .resolve()             → absolute path
+                 ↓
+              .parent              → progs folder
+                 ↓
+              .parent              → py folder (project root)
+                 ↓
+               str(...)            → "C:\\Users\\user\\py"
+                 ↓
+     sys.path.insert(0, ...)       → added at the front
+                 ↓
+           import module           → FOUND in C:\Users\user\py\modules\
+```
+
+Visual Diagram of sys.path.append(...)
+```
+main.py (currently running)
+       │
+       ▼
+    __file__ 
+       = "C:/Users/user/py/progs/main.py"
+       │
+       ▼
+ Path(__file__)                                   ──▶ WindowsPath('C:/Users/user/py/progs/main.py')
+       │
+       ▼
+          .parent                                 ──▶ C:/Users/user/py/progs
+       │
+       ▼
+                .parent                           ──▶ C:/Users/user/py          ← project root
+       │
+       ▼
+                     / "modules"                 ──▶ C:/Users/user/py/modules   ← target folder!
+       │
+       ▼
+          Path(__file__).parent.parent / "modules"
+       │
+       ▼
+                       str(...)                  ──▶ "C:\\Users\\user\\py\\modules"
+       │
+       ▼
+sys.path.append("C:\\Users\\user\\py\\modules")   ← added to the END of sys.path
+       │
+       ▼
+           Now this works! ──▶ import module          # Python finds module.py
+```
+##### Method 2: Run as a module with `-m`
+```python
+cd C:\Users\user\py
+python -m progs.main
+```
+This tells Python
+<!-- markdownlint-disable-next-line -->
+>  “Treat the `py` folder as the root, and run the `main.py` inside the `progs` package."
+{: .prompt-info }
+
+For this to work, you may need to add an empty `__init__.py` in the `progs` folder (optional in Python 3.3+, but still good practice).
+
+## Package
