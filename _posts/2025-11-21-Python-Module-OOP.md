@@ -278,3 +278,78 @@ This tells Python
 For this to work, you may need to add an empty `__init__.py` in the `progs` folder (optional in Python 3.3+, but still good practice).
 
 ## Package
+A package is a bundle of modules.
+
+### `__init__`
+> “Hey Python, this folder is special – it’s a package!”
+> You tell Python that by putting a tiny file called `__init__.py` inside it.
+> The file can be empty, or it can contain shortcuts so people don’t have to type long names.
+
+Example 1
+```text
+test2/
+└── utils/
+    ├── __init__.py   ← completely empty file!
+    └── hello.        ← contains: def hi(): print("hi")
+```
+
+```python
+# main.py
+import utils
+from utils.hello import hi
+hi()                  # → prints "hi"
+```
+Example 2
+```python
+# utils/__init__.py
+from .hello import hi        # this is the only line
+```
+```python
+# main.py
+import utils
+utils.hi()                   # no need to write utils.hello.hi
+```
+### `__all__`
+
+What is `__all__`?
+<!-- markdownlint-disable-next-line -->
+>  "When someone does `from utils import *`, ONLY give them these things."
+{: .prompt-info }
+
+Without `__all__`, Python gives everything that's "public" (not starting with `_`).
+With `__all__`, you are the boss — only what you list gets in.
+
+Example 3
+```python
+# utils/__init__.py
+from .hello import hi
+from .math import add
+from .colors import red
+
+__all__ = ["hi", "add", "red"]  # ← this line is the gatekeeper!
+```
+I will go into the details of `packagename.toml` later so no `sys.path` hack is required and no relative path nightmares - just pure, clean Python.
+
+<!-- markdownlint-disable-next-line -->
+>  package.zip
+{: .prompt-info }
+
+We can still use the `sys.path` hack, if you want to. Also we can zip the package folder and use the `path.append` to add the package path.
+
+```python
+# test_zip.py
+import sys
+from pathlib import Path
+
+# Add the zip file to Python's search path
+sys.path.append(str(Path("package.zip")))
+
+# These imports work directly from inside the ZIP!
+import extra.iota as iot
+from extra.good.best.sigma import funS
+
+iot.fun1()
+print(funS())
+print("It worked from inside a ZIP file! No extraction needed!")
+```
+## Python Package Installer (PIP)
