@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Module Mayhem & OOP Odyssey: Python's Power Play"
+title: "Module Mayhem : Python"
 date: 2025-11-21 10:00:00
 categories: Python
 tags: python  # TAG names should be lowercase
 image:
-    path: /assets/img/headers/pythonOOP.webp
+    path: /assets/img/post/pythonModule/python-modules.webp
 ---
 
-By now you’ve got the basics of Python down and you’ve managed not to get eaten by the snake, so congrats. Now we’re going deeper into its territory: modules, packages, and that whole object-oriented thing everyone keeps talking about.
+By now you’ve got the basics of Python down and you’ve managed not to get eaten by the snake, so congrats. Now we’re going deeper into its territory: modules, packages, and `pip`.
 
 ## Module
 Module is a decomposition process of breaking down a complex problem or a system into smaller, independent components. It is a file containing Python definitions and statements, which can be later imported and used when necessary.
@@ -93,7 +93,7 @@ dir(platform)
 ```
 ### How module works?
 
-![__pycache__](/assets/img/post/pythonOOP/bytecode.png){: width="972" height="589" .w-50 .left}
+![__pycache__](/assets/img/post/pythonModule/bytecode.png){: width="972" height="589" .w-50 .left}
 
 If you create module, lets say module.py and import it to main.py, a new subfolder appears - `__pycache__`. It has a file called module.cpython-xy.pyc where x and y are digits derived from python version. The last part .pyc comes from the word Python and Compiled. It is a byte code ready to be executed by interpreter.
 
@@ -147,7 +147,15 @@ if __name__ == "__main__":
     print(add(5, 3))      # → 8
     print(subtract(10, 4)) # → 6
 ```
-#### Private variable - Please don't touch
+
+
+#### Private variable
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable -->
+> Please don't touch !
+{: .prompt-danger }
+<!-- markdownlint-restore -->
+
 Python has no real `private` keyword like Java/C++ . It doesn't stop you from touching "private" things- it just asks nicely with underscores.
 * `_var` → “please don’t touch this unless you have a good reason”
 * `__var` → “I really don’t want you to touch this (but you still can if you try hard)”
@@ -353,3 +361,131 @@ print(funS())
 print("It worked from inside a ZIP file! No extraction needed!")
 ```
 ## Python Package Installer (PIP)
+Python Package repository <https://pypi.org/>
+It is maintained by a workgroup named as Packaging Working Group, a part of Python Software Foundation. <https://wiki.python.org/psf/PackagingWG>
+
+`pip` -pip installs packages, and the pip inside 'pip installs packages' means 'pip installs packages'.....a recursive acronym.
+
+```bash
+sudo apt install python3-pip
+
+python -m pip install --upgrade pip # To upgrade
+```
+```bash
+# Check pip version
+(venv) butcher@desktop:~/repo/python_notes$ pip --version
+pip 24.0 from /home/butcher/repo/python_notes/venv/lib/python3.12/site-packages/pip (python 3.12)
+
+(venv) butcher@desktop:~/repo/python_notes$ pip3 --version
+pip 24.0 from /home/butcher/repo/python_notes/venv/lib/python3.12/site-packages/pip (python 3.12)
+```
+
+```bash
+(venv) butcher@desktop:~/repo/python_notes$ pip
+
+Usage:   
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  download                    Download packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  inspect                     Inspect the python environment.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+  check                       Verify installed packages have compatible dependencies.
+  config                      Manage local and global configuration.
+  search                      Search PyPI for packages.
+  cache                       Inspect and manage pip s wheel cache.
+  index                       Inspect information available from package indexes.
+  wheel                       Build wheels from your requirements.
+  hash                        Compute hashes of package archives.
+  completion                  A helper command used for command completion.
+  debug                       Show information useful for debugging.
+  help                        Show help for commands.
+
+General Options:
+  -h, --help                  Show help.
+  --debug                     Let unhandled exceptions propagate outside the main subroutine, instead of logging them to stderr.
+  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
+  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error otherwise.
+  --python <python>           Run pip with the specified Python interpreter.
+  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times (corresponding to WARNING, ERROR, and CRITICAL logging levels).
+  --log <path>                Path to a verbose appending log.
+  --no-input                  Disable prompting for input.
+  --keyring-provider <keyring_provider>
+                              Enable the credential lookup via the keyring library if user input is allowed. Specify which mechanism to use [disabled, import, subprocess]. (default: disabled)
+  --proxy <proxy>             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
+  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
+  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.
+  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate Verification' in pip documentation for more information.
+  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
+  --cache-dir <dir>           Store the cache data in <dir>.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Donot periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.
+  --no-color                  Suppress colored output.
+  --no-python-version-warning
+                              Silence deprecation warnings for upcoming unsupported Pythons.
+  --use-feature <feature>     Enable new functionality, that may be backward incompatible.
+  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
+```
+
+```shell
+# Some useful pip commands
+pip help install
+pip list
+pip show pip # shows installed packages
+pip search anystring # can serach from web
+```
+
+### Dependencies
+Dependency Hell ? - Fortunately not. `pip` can do all of this for you. 
+
+Lets take this command `pip show pip`
+
+```bash
+(venv) butcher@desktop:~/repo/python_notes$ pip show pip
+Name: pip
+Version: 24.0
+Summary: The PyPA recommended tool for installing Python packages.
+Home-page: 
+Author: 
+Author-email: The pip developers <distutils-sig@python.org>
+License: MIT
+Location: /home/butcher/repo/python_notes/venv/lib/python3.12/site-packages
+Requires: 
+Required-by: 
+```
+This metadata has following last two lines:
+* which packages are needed to successfully utilize the package (Requires:)
+* which packages need the package to be successfully utilized (Required-by:)
+
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable -->
+> `pip install something`
+{: .prompt-danger }
+<!-- markdownlint-restore -->
+
+* Normal `pip install pygame` → assumes you are an administrator and tries to write into system directories.
+
+* `pip install --user pygame` → the double dash `--user` tells pip: “Hey, I’m just a normal user, please put the package in my home folder instead.”
+
+If you have created a virtual environment and enabled it (`venv`), you can ignore `--user`. 
+
+```bash
+# Some useful pip install / uninstall commands
+pip install -U package_name # Update a locally installed package
+
+pip install package_name==package_version # Install a user-selected version of a package (pip installs the newest available version by default)
+
+# Eg: pip install pygame==1.9.2
+
+pip unistall package_name
+```
+
