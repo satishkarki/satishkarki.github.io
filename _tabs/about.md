@@ -6,7 +6,7 @@ order: 4
 # 👋 Hi!
 I am Satish Karki, and welcome to my collection. You'll see more topics added here as I stumble across new ones that catch my interest or come in handy for my work and pet projects. My tiny brain just can't hold onto everything I learn (and as my wife loves to remind me, I forget stuff all the time), so I built this site to help me retain info. It's like how I jot down her to-do lists on my phone and set up reminders.
 
-The workflow is straightforward: When I dive deep into the abyss of a topic, I whip up a handy Markdown file summarizing the main concepts and takeaways. Then I commit it to my GitHub repo, which triggers a GitHub Action to build and deploy the site. I am using Hostinger for the custom domain. I wish I had a similar setup to keep my wife happy.
+The workflow is straightforward: When I dive deep into the abyss of a topic, I whip up a handy Markdown file summarizing the main concepts and takeaways. Then I commit it to my GitHub repo, which triggers a GitHub Action to build and deploy the site. I am using Hostinger for the custom domain.
 
 #### More about me:
 <!-- markdownlint-disable-next-line -->
