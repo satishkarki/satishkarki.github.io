@@ -150,6 +150,9 @@ $git log --oneline --decorate --graph --all
 The `git log` output is similar to this diagram.
 ![fastforward](assets/img/post/git-branching/fastforward.png)
 
+Changing the name of a branch like master/main/mainline/default will break the integrations, services, helper utilities and build/release scripts that your repository uses. Also, make sure you do a thorough search through your repo and update any references to the old branch name in your code and scripts.
+
+
 Now lets delete the hotfix branch and check the log again.
 ```bash
 $git branch -d hotfix
@@ -221,6 +224,70 @@ git log --oneline --decorate --graph --all
 In case if you want to visualize it in VS Code
 
 ![vscode-graph](assets/img/post/git-branching/vscode-graph.png)
+
+### Basic Merge Conflicts
+
+Here I created a branch `hotfix2` and made changes to `hotfix.md` file. I committed the change and checked out main branch. I again made changes to `hotfix.md` and committed the change. Then I tried to merge the `hotfox2` branch to main. I get the following error:
+
+![Mergeconflict](assets/img/post/git-branching/merge-conflict.png)
+
+ This is in VS Code but you can also run `git mergetool` for other graphical tools.
+
+```bash
+$git merge hotfix2
+Auto-merging hotfix.md
+CONFLICT (content): Merge conflict in hotfix.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+$git status
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   hotfix.md
+```
+In order to resolve the conflict, you have to choose one side or the other or merge the contents yourself. For example, here I changed the content of the hotfix.md file from main branch, committed the changes and merged again.
+
+```bash
+$git log --oneline --decorate --all --graph
+*   3564d78 (HEAD -> main) merge conflict checked
+|\  
+| * 4bbd11f (hotfix2) This is the second commit of hotfix2
+| * 6e12a44 This is a commit of hot fix2
+* | c7f19ae hotfix.md file changed from main
+|/  
+*   6d26878 Merge branch 'main' into testing
+|\  
+| * c272b9e The hotfix has been applied
+| * 83fd752 commit to create divergent
+* | 616c359 First commit of testing branch
+|/  
+* 5df03d0 (origin/main)  First commit of Git Branching
+* 7034b0d Git Basic topic complete
+```
+### Branch Management
+```bash
+$git branch # List current branch
+$git branch -v # Shows last commit on each branch
+$git branch --merged # Shows merged branch
+$git branch --no-merged # Shows branched that are yet to merge
+$git branch -D hotfix2 # Force deletion of unmerged branch
+$git branch --move bad-branch-name corrected-branch-name # This change is local
+$git push --set-upstream origin corrected-branch-name # To let others see the corrected branch on the remote
+$git push origin --delete bad-branch-name # To delete it upstream
+$git branch --move master main # Rename local master branch into main
+$git push --set-upstream origin main #push the changes upstream
+$git push origin --delete master # push it upstream
+```
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable -->
+> Danger!!
+{: .prompt-danger }
+<!-- markdownlint-restore -->
+Changing the name of a branch like master/main/mainline/default will break the integrations, services, helper utilities and build/release scripts that your repository uses. Also, make sure you do a thorough search through your repo and update any references to the old branch name in your code and scripts.
+
 ## Reference
 <https://gitimmersion.com/lab_01.html>
 
