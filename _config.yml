@@ -20,7 +20,7 @@ timezone: America/Toronto
 
 title: Satish Karki # the main title
 
-tagline: Systems Infrastructure Engineer | Professional F1 Yapper # it will display as the sub-title
+tagline: Systems Infrastructure Engineer | F1 Yapper # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich personal blog.
