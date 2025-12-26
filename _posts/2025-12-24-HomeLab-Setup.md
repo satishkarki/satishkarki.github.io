@@ -1,14 +1,17 @@
 ---
 layout: post
-title: "Home Lab Setup"
+title: "HomeLab Setup"
 date: 2025-12-24
 categories: homelab proxmox opnsense wireguard
+image:
+    path: assets/img/post/homelab-setup/doublenat.webp
 ---
+As I kickstart my home lab journey, the first issue I face — or rather, the first issue I don't have — is owning my own ISP router. But that’s not going to stop me from building one. The only real problem is double NAT, but I’ve decided to ignore it as a minor hiccup for now, even though I know it will likely become a major roadblock down the line. Still, I have to start somewhere and deal with the problems as they come. Let’s begin this home lab journey!
 
 ## Physical Connection
 
 1. Connect Ethernet cable from Ubuntu's port → Router's WAN port.
-2. Router's other Ethernet port → unmanaged switch.
+2. Router's other Ethernet port (LAN)→ unmanaged switch.
 3. Switch → Proxmox VE (and other LAN devices).
 
 ### 1. On my Linux Machine
@@ -23,7 +26,7 @@ lo               loopback  connected (externally)  lo
 eno1             ethernet  unavailable             --                 
 enp2s0f0         ethernet  unavailable             --      
 ```
-Just to provide context, I don't have an ISP router. I am using my landlord's wifi on my main desktop. It is connected to wi-fi using one of those 802.11n adaptor (wi-fi adaptor). `eno1` is the inbuilt ethernet port. `ensp2s0f0` and `enp2s0f1` are from my Broadcom dual ethernet port PCIe network card.
+Just to provide context, I am using my landlord's wifi on my main desktop. It is connected to wi-fi using one of those 802.11n adaptor (wi-fi adaptor). `eno1` is the inbuilt ethernet port. `ensp2s0f0` and `enp2s0f1` are from my Broadcom dual ethernet port PCIe network card.
 
 ```sh
 # Looks like these are 1Gbe ports
@@ -311,7 +314,7 @@ Enter an option:
 ```
 
 ### 3. Setting Up WireGuard
-Now what I want to setup WireGuard VPN tunnel so I can access the PVE console from my main machine.
+Now I want to setup WireGuard VPN tunnel so I can access the PVE console from my main machine. WireGurad and VPN tunnel in general demands a separate blog, which is in my roadmap.
 
 From GUI > VPN > WireGuard
 - Instances > Add > Create a new instance
@@ -397,9 +400,6 @@ IP Address (CIDR): 192.168.100.2/24
 Gateway : 192.168.100.1
 DNS Server : 192.168.100.1
 ```
-Since my PVE is behind OPNsense router, in order to get into the web console of PVE, I will have to enable reverse SSH tunnel.
-
-
 Now, lets try to SSH into our Proxmox. Since WireGuard is already running, it should be easy.
 
 ```sh
@@ -410,7 +410,8 @@ sudo wg-quick up wg0
 ssh root@192.168.100.2 # PVE's IP address
 root@pve:~#  # Bingo!!!
 ```
-There is a second method as well, if WireGuard is down or if you don't prefer it.
+There is a second method as well, if WireGuard is down or if you don't prefer it. Since my PVE is behind OPNsense router, in order to get into the web console of PVE, I will have to enable reverse SSH tunnel.
+
 ```sh
 # On OPNsense shell (option 8)
 

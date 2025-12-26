@@ -3,6 +3,8 @@ layout: post
 title: "Random_Contemplation"
 date: 2021-06-28
 categories: Random_Contemplation
+image:
+    path: assets/img/post/random-contemplation/visiblecontempt.webp
 ---
 
 Isn't it fascinating when a stupid machine that still thinks 1+1 equals 10 can do so many dazzling things from basic arithmetic to guiding us home safely, telling us which lane to take? Do you ever wonder, when an online store suggests us the T-shirt's size by just letting it know our height and weight, a company hiring us because its recruiting app matches the keywords in our resume? Our future is indulged in AI. Look at this progression, from mechanical inventions and mathematical theories towards modern computer concepts. The progress from the first photo uploaded on the Internet by Tim Berners-Lee, the inventor of the World Wide Web, to 50 billion photos uploaded to Instagram so far. The same machine I said stupid now controlling my dopamine level when I spend so many hours scrolling through all these photos on Instagram. Who is stupid now? Humans? No. 

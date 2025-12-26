@@ -3,6 +3,8 @@ layout: post
 title: "nmcli - network manager CLI"
 date: 2023-08-10
 categories: Linux
+image:
+    path: assets/img/post/nmcli/nmcli.jpg
 ---
 
 ------
