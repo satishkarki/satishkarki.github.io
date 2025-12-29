@@ -320,7 +320,7 @@ From GUI > VPN > WireGuard
 - Instances > Add > Create a new instance
     - Name: AccesPVEfromUbuntu
     - Public Key: XXXXXXXXXXXXXX (OPNsense WireGuard server's public key)
-    - Private Key : XXXXXXXXXXXXX (OPNsense WireGuard server's public key)
+    - Private Key : XXXXXXXXXXXXX (OPNsense WireGuard server's private key)
     - Listen port : 51820
     - Tunnel Address : 10.200.0.1/24
     - Peer : UbuntuClient

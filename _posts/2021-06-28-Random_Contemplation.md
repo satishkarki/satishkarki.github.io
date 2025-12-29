@@ -14,4 +14,3 @@ We are smart. Our parents always tell us to do the right thing but have you ever
 Based on this elementary concept of the computing system, we have advanced so far, yet the only constant thing is the change. And it enthralls me that we are dancing with all these bits and bytes bending it according to our needs. I always wanted to know it. That's why I plunged into this ocean of IT. I am exploring this vast ocean with no seabed. I want to dive deeper because it is a profound feeling.
 
 
-
