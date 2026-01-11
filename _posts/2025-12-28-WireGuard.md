@@ -2,7 +2,7 @@
 layout: post
 title: "WireGuard- How to setup VPN Tunnel"
 date: 2025-12-28
-categories: vpn
+categories: vpn homelab opnsense
 image:
     path: assets/img/post/WireGuard/how-vpn-tunneling.png
 ---
@@ -137,6 +137,9 @@ Here is an example of two peers being configured side by side. More details [her
 
 <https://www.jordanwhited.com/posts/wireguard-endpoint-discovery-nat-traversal/>
 
+<https://www.infradead.org/openconnect/>
+
+<https://github.com/mikeroyal/WireGuard-Guide>
 
 
 
