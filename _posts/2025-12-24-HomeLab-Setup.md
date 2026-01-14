@@ -4,7 +4,7 @@ title: "HomeLab Setup"
 date: 2025-12-24
 categories: homelab proxmox opnsense wireguard
 image:
-    path: assets/img/post/homelab-setup/doublenat.webp
+    path: assets/img/post/homelab-setup/proxmox-instance.png
 ---
 As I kickstart my home lab journey, the first issue I face — or rather, the first issue I don't have — is owning my own ISP router. But that’s not going to stop me from building one. The only real problem is double NAT, but I’ve decided to ignore it as a minor hiccup for now, even though I know it will likely become a major roadblock down the line. Still, I have to start somewhere and deal with the problems as they come. Let’s begin this home lab journey!
 

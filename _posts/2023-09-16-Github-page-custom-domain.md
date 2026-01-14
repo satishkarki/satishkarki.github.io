@@ -7,5 +7,12 @@ tags: dns_record github_action  # TAG names should be lowercase
 image:
     path: /assets/img/headers/github_page.webp
 ---
-Coming soon
 
+## ***Coming Soon***
+
+```bash
+$ gem install bundler jekyll
+$ jekyll new myblog
+$ cd myblog
+$ bundle exec jekyll serve
+```
