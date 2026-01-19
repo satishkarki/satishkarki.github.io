@@ -17,7 +17,7 @@ image:
 
 > Compress = shrinking / squeezing to save space
 
----
+
 ## Syntax
 
 ```bash
@@ -38,7 +38,7 @@ tar [options] [archive-file] [file or directory to be archived]
 | **-W :** Verify a archive file                               |
 | **-r :** update or add file or directory in already existed .tar file |
 
-***
+
 
 ### The magic behind configure, make, make install
 
@@ -50,7 +50,7 @@ make install   #Install the software
 
 [Learn the magic](https://thoughtbot.com/blog/the-magic-behind-configure-make-make-install)
 
-***
+
 
 ## Example
 
@@ -70,7 +70,8 @@ cd PACKAGENAME
 make
 sudo make install
 ```
----
+
+<hr style="border:2px solid blue">
 
 ## zip/unzip
 
@@ -87,5 +88,5 @@ for files ending with `.zip`, we can use the zip and unzip command. Here is a li
 | `zip -r -9 archive.zip folder/`      | Zip with maximum compression                      | When file size really matters             |
 | `zip -u archive.zip newfile.txt`     | Add / update file in existing zip                 | Incrementally add files later             |
 
----
+
 

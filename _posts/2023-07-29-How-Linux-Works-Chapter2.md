@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How Linux Works - Chapter 2 Notes"
+title: "Linux Basic Commands"
 date: 2023-07-29
 categories: linux 
 image:
