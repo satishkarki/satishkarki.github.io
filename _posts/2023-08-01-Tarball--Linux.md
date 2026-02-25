@@ -2,7 +2,7 @@
 layout: post
 title: "tarball- Linux"
 date: 2023-08-01
-categories: linux tar
+categories: Linux
 image:
     path: assets/img/post/tarball/targzip.png
 ---

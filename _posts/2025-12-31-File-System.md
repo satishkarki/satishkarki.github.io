@@ -2,7 +2,8 @@
 layout: post
 title: "Head First Dive Into The File System"
 date: 2025-12-31
-categories: file_system zfs storage
+categories: Linux
+tags: file_system zfs storage
 image:
     path: assets/img/post/file-system/filesystemcover.png
 ---

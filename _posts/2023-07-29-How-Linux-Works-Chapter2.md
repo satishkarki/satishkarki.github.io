@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Basic Commands"
 date: 2023-07-29
-categories: linux 
+categories: Linux 
 image:
     path: /assets/img/headers/linux.webp
 ---

@@ -2,7 +2,8 @@
 layout: post
 title: "HomeLab Setup"
 date: 2025-12-24
-categories: homelab proxmox opnsense wireguard
+categories: Homelab
+tags: proxmox opnsense wireguard
 image:
     path: assets/img/post/homelab-setup/proxmox-instance.png
 ---

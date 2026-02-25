@@ -2,7 +2,8 @@
 layout: post
 title: "WireGuard- How to setup VPN Tunnel"
 date: 2025-12-28
-categories: vpn homelab opnsense
+categories: Homelab
+tags: vpn opnsense
 image:
     path: assets/img/post/WireGuard/how-vpn-tunneling.png
 ---
