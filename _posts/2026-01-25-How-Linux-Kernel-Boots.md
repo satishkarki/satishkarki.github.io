@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "How Linux Kernel Boots ?"
+title: "How Linux Kernel Boots?"
 date: 2026-01-25
 categories: Linux
 tags: bootloader grub 
 image:
-    path: assets/img/post/how-kernel-boot/bootloader.png
+    path: assets/img/post/how-kernel-boot/Linux-Boot.svg
 ---
 Ever wondered what really happens in those few seconds (or agonizing minutes on older hardware) between pressing the power button and finally seeing that glorious login screen? It often feels like staring into a black void while your machine decides whether today is the day it cooperates.
 
@@ -109,7 +109,46 @@ You’ll typically see something like:
 ***Where this sits in the boot chain***
 
 > UEFI: Firmware → grubx64.efi on ESP → GRUB menu → kernel
+<hr style="border:2px solid blue">
 
+## The inital RAM Filesystem
+Kernel needs drivers to access the disk. Drivers are on the disk. How to get them?
+ `initramfs` solves this by providing a tiny, self-contained filesystem in RAM that contains:
+
+ * Essential binaries (like busybox or a minimal shell)
+ * Device drivers/modules (e.g., for NVMe, SATA, LVM, dm-crypt, mdadm RAID)
+ * Scripts and tools to detect hardware, load modules, decrypt disks, assemble RAID/LVM, mount the real root
+
+Once the real root is mounted, the system switches to it and continues booting normally (running the real /sbin/init or systemd).
+
+***How initramfs Works in the Boot Process?***
+
+1. Bootloader (GRUB, systemd-boot, etc.) loads two things into memory:
+
+   * The compressed Linux kernel (vmlinuz)
+   * The initramfs image (usually a file like /boot/initramfs-6.8.0-31-generic.img)
+
+2. Kernel starts executing:
+   * Decompresses itself
+   * Initializes basic hardware (CPU, memory, console)
+
+3. Kernel detects the initramfs (passed by bootloader):
+   * It's a cpio archive (often gzipped, xz, zstd compressed)
+   * Kernel extracts it into a special in-memory filesystem called rootfs (based on ramfs or tmpfs)
+
+4. Kernel looks for /init inside this extracted filesystem:
+   * Runs /init as PID 1 (the very first userspace process)
+
+5. The /init script (usually a shell script from dracut, mkinitcpio, or initramfs-tools) does the heavy lifting:
+   * Loads kernel modules (e.g., modprobe nvme)
+   * Sets up block devices (LVM, RAID, encrypted partitions)
+   * Mounts the real root filesystem (e.g., /dev/mapper/root or /dev/sda3)
+   * Switches root (switch_root or pivot_root) to the real disk
+   * Executes the real init (usually /sbin/init, which is systemd on modern distros)
+
+6. initramfs is discarded — the system now runs from the real root filesystem.
+
+<hr style="border:2px solid blue">
 
 ## TLDR
 The boot process in Linux is a step-by-step handoff from hardware to software, ending with user-level processes (like your shell or desktop environment).
