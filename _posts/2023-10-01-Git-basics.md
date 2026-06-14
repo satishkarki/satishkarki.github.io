@@ -525,6 +525,34 @@ $git reset HEAD -- fileA
 
 At this point, you can do all the basic local Git operation. Next we will look at the Git's killer feature: its branching model.
 
+## SSHing remote git
+
+```bash
+# Generate SSH key (if you don't have one)
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Copy public key and add it to GitHub → Settings → SSH Keys
+cat ~/.ssh/id_ed25519.pub
+
+# Change your remote to SSH
+git remote set-url origin git@github.com:githubname/repo.git
+
+# Push
+git push -u origin main
+```
+If the SSH key is already stored in the Github -> Setting -> SSH Keys then follow this:
+
+```bash
+ssh -T git@github.com
+
+# Hi satishkarki! You've successfully authenticated, but GitHub does not provide shell access.
+```
+Then
+```bash
+git remote set-url origin git@github.com:satishkarki/repo.git
+git push -u origin main
+```
+
 ## Reference
 <https://gitimmersion.com/lab_01.html>
 
