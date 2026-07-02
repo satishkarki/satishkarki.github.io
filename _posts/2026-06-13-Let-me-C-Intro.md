@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Let me C"
+title: "Let me C- Intro"
 date: 2026-06-13
 categories: C-PROGRAMMING
 tags: embedded-programming c-programming
@@ -381,6 +381,68 @@ EOF:          my_getline → returns 0    → loop exits
 
 ### Example 6 External Variable and Scope
 
+Here is the [book example](https://github.com/satishkarki/let-me-c/blob/main/Chapter-1-A-Tutorial-Introduction/1-10-External-Variable.c)
+
+```c
+int max;                /* external — every function can see this */
+char line[MAXLINE];     /* external — every function can see this */
+char longest[MAXLINE];  /* external — every function can see this */
+
+int main() { ... }
+int getline(void) { ... }
+void copy(void) { ... }
+```
+**Definition vs Declaration**
+
+Definition — creates the variable, allocates memory. Happens exactly once:
+```c
+int max;              /* DEFINITION — memory allocated */
+char line[MAXLINE];   /* DEFINITION — memory allocated */
+```
+Declaration — announces the variable exists somewhere. No memory allocated:
+```c
+extern int max;        /* DECLARATION — no memory allocated */
+extern char longest[]; /* DECLARATION — no memory allocated */
+```
+
+**When to use `extern`**
+extern is redundant when the variable is defined earlier in the same file:
+```c
+int max;        /* defined at top */
+
+int main() {
+    extern int max;   /* redundant — compiler already saw it */
+    max = 0;          /* works either way */
+}
+```
+Common practice — define all external variables at the top, omit extern:
+```c
+int max;
+char line[MAXLINE];
+char longest[MAXLINE];
+
+int main() {
+    max = 0;    /* no extern needed */
+}
+```
+`extern` becomes essential across multiple files:
+```bash
+file1.c                    file2.c
+───────────────────        ──────────────────
+int max;                   extern int max;    ← required
+char line[MAXLINE];        extern char line[];
+```
+
+>Key Points:
+
+* Local variables are private, temporary, and passed explicitly — clean and safe.
+* External variables are global, permanent, and visible everywhere — convenient but risky.
+* Definition allocates memory (once). Declaration (extern) just announces the variable.
+* extern can be omitted when the definition appears earlier in the same file.
+* Use external variables sparingly — hidden data flow leads to bugs and unmaintainable code.
+
+Now with this foundational knowledge, we will expand our understanding of additional capabilities of C in another post.
+Stay tunned.  
 
 
 
