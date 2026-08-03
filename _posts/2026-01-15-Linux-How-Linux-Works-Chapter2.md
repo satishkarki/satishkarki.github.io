@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Linux Basic Commands"
-date: 2023-07-29
+title: "Linux: Basic Commands"
+date: 2026-01-15
 categories: Linux 
 image:
     path: /assets/img/headers/linux.webp

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How To Manage Debian Packages"
+title: "Utilities: How To Manage Debian Packages"
 date: 2021-08-16
 categories: Linux
 image:

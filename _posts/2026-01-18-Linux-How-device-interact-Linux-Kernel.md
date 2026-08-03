@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How devices interact with Linux Kernel ?"
+title: "Linux: How devices interact with Kernel ?"
 date: 2026-01-18
 categories: Linux
 tags: scsi linux

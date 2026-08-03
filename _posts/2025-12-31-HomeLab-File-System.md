@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Head First Dive Into The File System"
+title: "HomeLab: Head First Dive Into The File System"
 date: 2025-12-31
 categories: Linux
 tags: file_system zfs storage

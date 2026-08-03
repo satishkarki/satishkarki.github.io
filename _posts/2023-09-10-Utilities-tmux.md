@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "tmux- terminal multiplexer"
-date: 2026-06-21
+title: "Utilities: tmux- terminal multiplexer"
+date: 2023-09-10
 categories: shell
 tags: tmux shell
 image:

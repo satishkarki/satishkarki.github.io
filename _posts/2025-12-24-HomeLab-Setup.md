@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "HomeLab Setup"
+title: "HomeLab: Setup"
 date: 2025-12-24
 categories: Homelab
 tags: proxmox opnsense wireguard

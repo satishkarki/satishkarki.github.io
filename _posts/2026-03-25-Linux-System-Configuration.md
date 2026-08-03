@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux - System Configuration"
+title: "Linux: System Configuration"
 date: 2026-03-25
 categories: Linux
 tags:  journald passwd journactl cron pam

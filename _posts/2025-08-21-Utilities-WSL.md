@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Windows SubSystem for Linux"
+title: "Utilities: Windows SubSystem for Linux"
 date: 2025-08-21 10:00:00
 categories: Linux
 tags: wsl linux  # TAG names should be lowercase

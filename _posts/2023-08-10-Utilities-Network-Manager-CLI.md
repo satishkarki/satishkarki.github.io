@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "nmcli - network manager CLI"
+title: "Utilities: nmcli - network manager CLI"
 date: 2023-08-10
 categories: Linux
 image:

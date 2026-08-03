@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How Linux Kernel Boots?"
+title: "Linux: How Kernel Boots?"
 date: 2026-01-25
 categories: Linux
 tags: bootloader grub 

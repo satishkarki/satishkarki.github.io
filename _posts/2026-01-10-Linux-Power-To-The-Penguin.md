@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux: Power To The Penguin"
-date: 2023-07-28 20:00:00
+date: 2026-01-10 20:00:00
 categories: Linux
 tags: process file_system linux  # TAG names should be lowercase
 image:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python-Virtual Environment"
+title: "Python: Virtual Environment"
 date: 2025-09-05 10:00:00
 categories: Python
 tags: python  # TAG names should be lowercase

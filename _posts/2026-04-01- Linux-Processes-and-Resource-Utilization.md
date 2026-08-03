@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A closer look at Processes and Resource Utilization"
+title: "Linux: A closer look at Processes and Resource Utilization"
 date: 2026-04-01
 categories: Linux
 tags:  process thread htop iotop lsof vmstat iostat cgroups

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Working with Disk and File System in Linux"
+title: "Linux: Working with Disk and File System"
 date: 2026-01-20
 categories: Linux
 tags: partition file_system swap_space lvm 

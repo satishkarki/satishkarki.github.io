@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Try-Except or Die Trying: Python for the Exceptionally Clueless"
+title: "Python: Try-Except or Die Trying"
 date: 2025-10-24 10:00:00
 categories: Python
 tags: python  # TAG names should be lowercase

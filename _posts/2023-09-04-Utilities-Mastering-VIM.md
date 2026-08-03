@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mastering Vim"
+title: "Utilities: Mastering Vim"
 date: 2021-05-09 22:00:00
 categories: Text_Editor
 tags: text_editior linux # TAG names should be lowercase
