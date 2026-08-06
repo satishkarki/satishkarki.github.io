@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Let me C - Types, Operators, Expressions and Control Flow"
+title: "Let me C : Types, Operators, Expressions and Control Flow"
 date: 2026-08-02
 categories: C-PROGRAMMING
 tags: embedded-programming c-programming
@@ -283,16 +283,16 @@ int b = (a >= 0) ? a : -a;
 | `,` (comma operator) | left to right |
 
 
-# Control Flow
+## Control Flow
 
-## 1. If-Else
+### 1. If-Else
 ```c
 if (expression)
     statement1
 else
     statement2
 ```
-## 2. Else-If
+### 2. Else-If
 ```c
 if (expression1)
     statement1
@@ -303,7 +303,7 @@ else if (expression3)
 else
     statement4
 ```
-## 3. Swtich
+### 3. Swtich
 ```c
 switch (expression) {
     case const1:
@@ -316,7 +316,7 @@ switch (expression) {
         statements
 }
 ```
-## 4. Loops- While and For
+### 4. Loops- While and For
 ```c
 initialization;
 while (condition) {
@@ -342,7 +342,7 @@ for (int count = 0; count < 5; count++) {
     printf("%d\n", count);
 }
 ```
-## 5. Loop- Do-while
+### 5. Loop- Do-while
 
 ```c
 do
@@ -353,7 +353,7 @@ Notice the `;` at the end this time - unlike while and for, the do-while loop is
 
 The key difference: with while and for, the condition is checked before the body runs - so the body might execute zero times. With do-while, the condition is checked after the body runs - so the body always executes at least once, no matter what.
 
-## 6. Break and Continue
+### 6. Break and Continue
 
 ```c
 for (int i = 0; i < 10; i++) {
@@ -371,7 +371,7 @@ for (int i = 0; i < 5; i++) {
 }
 // prints 0 1 3 4  (2 is skipped, loop still runs to completion)
 ```
-## 7. Goto and Labels
+### 7. Goto and Labels
 ```c
 goto label;
 ...

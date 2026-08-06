@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Let me C - Intro"
+title: "Let me C : Intro"
 date: 2026-06-13
 categories: C-PROGRAMMING
 tags: embedded-programming c-programming
