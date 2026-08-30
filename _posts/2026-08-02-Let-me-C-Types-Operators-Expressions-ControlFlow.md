@@ -5,7 +5,7 @@ date: 2026-08-02
 categories: C-PROGRAMMING
 tags: embedded-programming c-programming
 image:
-    path: assets/img/post/let-me-c/control-flow/control_flow_bullet_thumbnail.svg
+    path: assets/img/post/let-me-c/control-flow/control_flow.png
 ---
 
 ## Variable names

@@ -5,7 +5,7 @@ date: 2026-08-24
 categories: DOCKER
 tags: contianer images volumes
 image:
-    path: assets/img/post/docker-core-concepts/Docker-Core-Thumbnail.png
+    path: assets/img/post/docker-core-concepts/Docker-Core-Concepts.png
 ---
 After having a good look at the top-down overview of how docker works. Let's dive into the core concept by following the official [docker workshop](https://docs.docker.com/get-started/workshop/)
 * Docker: The tool/platform that manages everything

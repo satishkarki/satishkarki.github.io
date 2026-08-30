@@ -5,7 +5,7 @@ date: 2026-08-04
 categories: DOCKER
 tags: contianer vm linux
 image:
-    path: assets/img/post/docker/docker-getting-started.png
+    path: assets/img/post/docker/Docker-Top-Down-Overview.png
 ---
 
 > It works on my machine !!!

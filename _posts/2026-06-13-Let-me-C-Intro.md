@@ -5,7 +5,7 @@ date: 2026-06-13
 categories: C-PROGRAMMING
 tags: embedded-programming c-programming
 image:
-    path: assets/img/post/let-me-c/let-me-c-thumbnail.png
+    path: assets/img/post/let-me-c/Intro/compilation_pipeline.png
 ---
 
 C's philosophy - "Don't do anything the programmer didn't ask for"
