@@ -425,19 +425,9 @@ Container sees:                 Docker stores:
              mounted volume
 ```
 To see mount point only:
+
 ```bash
 docker volume inspect --format '{{ .Mountpoint }}' todo-db
 ```
+
 ## Part 5: [Use bind mounts](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
-
-
-
-
-
-
-
-
-
-
-
-
