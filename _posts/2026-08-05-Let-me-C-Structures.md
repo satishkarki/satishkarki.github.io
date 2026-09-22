@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Let me C : Strucutures"
+title: "Let me C : Structures"
 date: 2026-08-05
 categories: C-PROGRAMMING
 tags: embedded-programming c-programming structures

@@ -1,4 +1,15 @@
-# Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+# What's the purpose of this repo?
+This is the repo for my blog site <https://satishkarki.com>.
+Here I post about the things I love doing- something that helps me during my day job and some that tickles my personal interest as a hobby. 
+
+I am using Hostinger to host this github page in my custom domain `www.satishkarki.com`. 
+
+I have built a custom website from scratch- hand coded HTML, CSS and JavaScript. Looking back at it today in this agentic AI world, that seems to be a great feat and painful at the same time. The site was mostly static and difficult to scale and maintain. I wanted something where I can write my blog in markdown format, apply some cosmetics and push it to prod- that's when I stumbled upon this Jekyll theme. You add your markdown files under `_posts`, commit and push and github action do the heavy lifting. In few seconds, boom - the new post is available.
+
+Here is the Chirpy starter if yoy are interested.
+
+
+## Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 
 When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders `/_data`, `/_layouts`, `/_includes`, `/_sass` and `/assets`, as well as a small part of options of the `/_config.yml` file from the theme's gem. If you have ever installed this theme gem, you can use the command `bundle info --path jekyll-theme-chirpy` to locate these files.
 
